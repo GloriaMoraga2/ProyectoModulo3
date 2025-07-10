@@ -17,11 +17,11 @@ public class ProductoTest {
     }
 
     @Test
-    void noDeberiaCrearProductoNombreVacio(){
-        Exception exception = assertThrows(IllegalArgumentException.class, ()->{
-        new Producto(2,"", 29.990);
+    void noDeberiaCrearProductoConNombreVacio() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            new Producto(2, "", 29.99);
         });
 
-        assertEquals("El nombre no puede estar vacio", exception.getMessage());
+        assertEquals("El nombre no puede estar vacío", exception.getMessage());
     }
 }
