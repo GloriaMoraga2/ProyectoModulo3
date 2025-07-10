@@ -2,6 +2,7 @@ package com.ejemplo.test;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import com.ejemplo.model.Producto;
+import  com.ejemplo.repository.ProductoRepository;
 
 public class ProductoTest {
 
@@ -33,4 +34,19 @@ public class ProductoTest {
         assertEquals("El precio no puede ser negativo", exception.getMessage());
 
     }
+    @Test
+    void deberiaActualizarProductoExistente(){
+        ProductoRepository repo = new ProductoRepository();
+        Producto original = new Producto(1, "Pantalon", 15.990);
+        repo.guardar(original);
+
+        Producto actualizado = new Producto(1, "Pantalon Sastrero", 16.990);
+        repo.actualizar(actualizado);
+
+        Producto resultado = repo.obtenerTodos().get(0);
+        assertEquals("Pantalon Sastrero", resultado.getNombre());
+        assertEquals(16.990, resultado.getPrecio());
+    }
+
+
 }
