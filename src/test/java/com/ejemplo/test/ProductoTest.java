@@ -6,8 +6,8 @@ import com.ejemplo.model.Producto;
 public class ProductoTest {
 
     @Test
-    void deberiaCrearProductoConDatosValidos(){
-        Producto producto = new Producto(1,"Camiseta", 19.990);
+    void deberiaCrearProductoConDatosValidos() {
+        Producto producto = new Producto(1, "Camiseta", 19.990);
 
         //Assert
 
@@ -23,5 +23,14 @@ public class ProductoTest {
         });
 
         assertEquals("El nombre no puede estar vacío", exception.getMessage());
+    }
+
+    @Test
+    void noDeberiaCrearProductoConPrecioNegativo() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            new Producto(3, "Zapatos", -15.990);
+        });
+        assertEquals("El precio no puede ser negativo", exception.getMessage());
+
     }
 }
