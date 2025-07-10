@@ -21,6 +21,7 @@ public class ProductoTest {
         Exception exception = assertThrows(IllegalArgumentException.class, ()->{
         new Producto(2,"", 29.990);
         });
-    }
 
+        assertEquals("El nombre no puede estar vacio", exception.getMessage());
+    }
 }
