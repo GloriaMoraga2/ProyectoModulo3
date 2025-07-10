@@ -15,4 +15,12 @@ public class ProductoTest {
         assertEquals("Camiseta", producto.getNombre());
         assertEquals(19.990, producto.getPrecio());
     }
+
+    @Test
+    void noDeberiaCrearProductoNombreVacio(){
+        Exception exception = assertThrows(IllegalArgumentException.class, ()->{
+        new Producto(2,"", 29.990);
+        });
+    }
+
 }
