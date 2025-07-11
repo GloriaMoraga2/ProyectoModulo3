@@ -1,4 +1,4 @@
-# Proyecto Módulo 3 –
+# Proyecto Módulo 3 
 
 Este proyecto fue desarrollado como parte del módulo 3 del Bootcamp de Automatización de Pruebas.  
 El objetivo principal fue aplicar **TDD (Test Driven Development)** usando Java, JUnit, Mockito y Jacoco.
